@@ -1,5 +1,7 @@
 package com.android.example.a68568_mapweek10
 
+import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -59,6 +62,8 @@ fun LoginScreen(navController: NavController, authViewModel: AuthViewModel) {
             snackbarMessage = "Google Sign-In canceled."
         }
     }
+    val context = LocalContext.current
+    val activity = context as Activity
 
     Scaffold (
         snackbarHost = { SnackbarHost (snackbarHostState)}
